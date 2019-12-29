@@ -18,11 +18,11 @@ export default class HelloWorld extends Vue {
         @Prop() private items!: string[]
         menuVisibility = false
         toggleMenuVisibility (val: boolean) {
-          const el = this.$refs.menu
+          const elem: any = this.$refs.menu
           if (!val) {
-            el.style.setProperty('--margin-top', 0)
+            elem.style.setProperty('--margin-top', 0)
           } else {
-            el.style.setProperty('--margin-top', '-81px')
+            elem.style.setProperty('--margin-top', '-81px')
           }
           this.menuVisibility = !val
         }

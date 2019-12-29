@@ -240,5 +240,8 @@ export default class Content extends Vue {
   }
   .section-contact {
     margin-bottom: 30px;
+    a:hover, a:visited:hover {
+      text-decoration: none;
+    }
   }
 </style>
