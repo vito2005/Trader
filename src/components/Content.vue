@@ -57,7 +57,6 @@
           </div>
         </div>
       </div>
-
     </section>
     <section class="section section-statement">
       <div class="section__headline">
@@ -105,7 +104,7 @@ export default class Content extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .section {
-    padding: 80px;
+    padding: 70px 50px 0 50px;
     color: rgb(0, 0, 0);
     .section__headline {
       font-size: 3rem;
@@ -177,6 +176,14 @@ export default class Content extends Vue {
       .section__content__aboutme {
         max-width: 1200px;
         margin: 0 auto;
+        &:after {
+          visibility: hidden;
+          display: block;
+          font-size: 0;
+          content: " ";
+          clear: both;
+          height: 0;
+        }
         .column__main {
           width: 33.33333%;
           display: block;
@@ -204,7 +211,7 @@ export default class Content extends Vue {
           display: block;
           float: left;
           box-sizing: border-box;
-          padding: 20px;
+          padding: 20px 20px 0 20px;
           p {
             margin-top: 0;
             color: #9B9BA3;
@@ -213,6 +220,9 @@ export default class Content extends Vue {
             font-style: normal;
             line-height: 1.85em;
             letter-spacing: .05em;
+            &:last-child {
+              margin-bottom: 0;
+            }
           }
         }
       }
@@ -227,5 +237,8 @@ export default class Content extends Vue {
         width: 30%;
       }
     }
+  }
+  .section-contact {
+    margin-bottom: 30px;
   }
 </style>

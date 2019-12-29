@@ -18,13 +18,13 @@ export default {
       handler: async function (val) {
         if (val && Object.keys(val).length) {
           this.renderChart({
-            labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            labels: this.chartData.U2815583['1Y'].dates.map(d => parse(d)),
             datasets: [
               {
-                label: 'Коммиты на GitHub',
+                label: 'Доходность США (%)',
                 backgroundColor: '#8cf8a4',
                 fill: false,
-                data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+                data: this.chartData.U2815583['1Y'].cps.map(d => (d * 100).toFixed(2))
               }
             ]
           }, { responsive: true, maintainAspectRatio: false })
@@ -45,7 +45,7 @@ export default {
       labels: this.chartData.U2815583['1Y'].dates.map(d => parse(d)),
       datasets: [
         {
-          label: 'Доходность (%)',
+          label: 'Доходность США (%)',
           backgroundColor: '#8cf8a4',
           fill: false,
           data: this.chartData.U2815583['1Y'].cps.map(d => (d * 100).toFixed(2))
