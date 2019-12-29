@@ -3,7 +3,7 @@ node_js:
   - "10.0"
 script:
   - echo "Deploying!"
-  - vue-cli-service build
+  - npm run build
 install:
   - npm install -g firebase-tools
 after_success:
