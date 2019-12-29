@@ -1,7 +1,7 @@
 <template>
   <nav class="main-nav" ref="menu" @mouseleave="toggleMenuVisibility(menuVisibility)">
     <ul>
-      <li :key="i" v-for="(item, i) in items"><a :href="`#${item.href}`"></a>{{ item.title }}</li>
+      <li :key="i" v-for="(item, i) in items"><a :href="`#${item.href}`">{{ item.title }}</a></li>
     </ul>
     <a href="#" class="main-nav-trigger">
       <i @mouseenter="toggleMenuVisibility(menuVisibility)" class="icon icon--burger"></i>
@@ -80,8 +80,15 @@ export default class HelloWorld extends Vue {
         font-family: "Oak Bold",sans-serif;
         font-weight: 700;
         font-style: normal;
-        &:hover {
-          color: #87c6bd;
+        a {
+          font-family: "Oak Bold",sans-serif;
+          font-weight: 700;
+          font-style: normal;
+          color: rgb(0,0,0);
+          text-decoration: none;
+          &:hover {
+            color: #87c6bd;
+          }
         }
       }
     }
