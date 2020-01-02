@@ -5,32 +5,32 @@
         <span>ПРОФИЛЬ</span>
       </div>
       <div class="section__content">
-        <div class="section__content__skills">
-          <div class="card">
-            <div>
-              <img src="./../assets/images/settings.svg" alt="fundamental">
-              <h4>
-                Фундаменальный анализ
-              </h4>
-            </div>
-          </div>
-          <div class="card">
-            <div>
-              <img src="./../assets/images/technical.svg" alt="technical">
-              <h4>
-                Технический анализ
-              </h4>
-            </div>
-          </div>
-          <div class="card">
-            <div>
-              <img src="./../assets/images/suitcase.svg" alt="suitcase">
-              <h4>
-                Формирование портфеля
-              </h4>
-            </div>
-          </div>
-        </div>
+<!--        <div class="section__content__skills">-->
+<!--          <div class="card">-->
+<!--            <div>-->
+<!--              <img src="./../assets/images/settings.svg" alt="fundamental">-->
+<!--              <h4>-->
+<!--                Фундаменальный анализ-->
+<!--              </h4>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="card">-->
+<!--            <div>-->
+<!--              <img src="./../assets/images/technical.svg" alt="technical">-->
+<!--              <h4>-->
+<!--                Технический анализ-->
+<!--              </h4>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="card">-->
+<!--            <div>-->
+<!--              <img src="./../assets/images/suitcase.svg" alt="suitcase">-->
+<!--              <h4>-->
+<!--                Формирование портфеля-->
+<!--              </h4>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
         <div class="section__content__aboutme">
           <div class="column__main">
             <h3 class="font-face--plantin-light">
