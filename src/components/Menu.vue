@@ -1,10 +1,10 @@
 <template>
-  <nav class="main-nav" ref="menu" @mouseleave="toggleMenuVisibility(menuVisibility)">
+  <nav class="main-nav" ref="menu">
     <ul>
       <li :key="i" v-for="(item, i) in items"><a :href="`#${item.href}`">{{ item.title }}</a></li>
     </ul>
     <a href="#" class="main-nav-trigger">
-      <i @mouseenter="toggleMenuVisibility(menuVisibility)" class="icon icon--burger"></i>
+      <i class="icon icon--burger"></i>
     </a>
   </nav>
 
@@ -16,16 +16,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class HelloWorld extends Vue {
         @Prop() private items!: string[]
-        menuVisibility = false
-        toggleMenuVisibility (val: boolean) {
-          const elem: any = this.$refs.menu
-          if (!val) {
-            elem.style.setProperty('--margin-top', 0)
-          } else {
-            elem.style.setProperty('--margin-top', '-81px')
-          }
-          this.menuVisibility = !val
-        }
 }
 </script>
 
@@ -39,28 +29,40 @@ export default class HelloWorld extends Vue {
     font-family: "Oak Light",sans-serif;
     font-weight: lighter;
     font-style: normal;
+    font-size: 1em;
   }
   nav.main-nav {
-    --margin-top: -81px;
       height: auto;
       position: fixed;
+      left: 0;
       top: 0;
       width: 100%;
       text-align: center;
       z-index: 1000;
       background: #FFF;
       transition: .7s cubic-bezier(.77,0,.175,1);
-    &:before {
+    &:hover {
       height: 80px;
+      &:before {
+        margin-top: 0;
+      }
+      ul {
+        li {
+          transform: translateY(0);
+        }
+      }
+    }
+    &:before {
       content: '';
       display: block;
       background: #FFF;
       border-bottom: 1px solid #F3F3F3;
-      margin-top: var(--margin-top);
+      margin-top: -81px;
       -webkit-transition: .4s cubic-bezier(.77,0,.175,1);
       transition: .4s cubic-bezier(.77,0,.175,1);
     }
     ul  {
+      transform: none;
       top: auto;
       bottom: 0;
       background-color: #FFF;
@@ -73,24 +75,43 @@ export default class HelloWorld extends Vue {
       padding: 20px;
       margin: 0;
       li  {
-        cursor: pointer;
-        margin: 0 30px;
+        display: inline-block;
+        margin: 0;
         padding: 10px;
+        -webkit-transition: .6s cubic-bezier(.77,0,.175,1);
+        transition: .6s cubic-bezier(.77,0,.175,1);
         text-transform: uppercase;
         font-family: "Oak Bold",sans-serif;
         font-weight: 700;
         font-style: normal;
+        transform: translateY(-100%);
         a {
           font-family: "Oak Bold",sans-serif;
           font-weight: 700;
           font-style: normal;
+          font-size: .875em;
+          letter-spacing: .15em;
           color: rgb(0,0,0);
           text-decoration: none;
+          text-transform: uppercase;
+          display: inline-block;
+          -webkit-transition: .1s;
+          transition: .1s;
           &:hover {
             color: #87c6bd;
           }
         }
       }
+    }
+  }
+  @media (min-width: 1px) {
+    .main-nav, .main-nav:before {
+      height: 100%;
+    }
+  }
+  @media (min-width: 768px){
+    .main-nav:before {
+      height: 80px;
     }
   }
   a.main-nav-trigger {
