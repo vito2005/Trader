@@ -1,6 +1,6 @@
 <template>
   <div class="site-main">
-    <section class="section section-profile">
+    <section class="section section-profile" id="profile" ref="profile">
       <div class="section__headline">
         <span>ПРОФИЛЬ</span>
       </div>
@@ -58,7 +58,7 @@
         </div>
       </div>
     </section>
-    <section class="section section-statement">
+    <section class="section section-statement" id="statement" ref="statement">
       <div class="section__headline">
         <span>СТЕЙТМЕНТ</span>
       </div>
@@ -67,7 +67,7 @@
       </div>
 
     </section>
-    <section class="section section-contact">
+    <section class="section section-contact" id="contact" ref="contact">
       <div class="section__headline">
         <span>КОНТАКТЫ</span>
       </div>
@@ -142,6 +142,7 @@ export default class Content extends Vue {
       font-size: 2.7rem;
       font-weight: bold;
       letter-spacing: 0.4em;
+      margin-top: 0.5rem;
       &:after {
         margin: 70px auto;;
         width: 100px;
