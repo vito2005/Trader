@@ -106,6 +106,22 @@ export default class Content extends Vue {
   .section {
     padding: 70px 50px 0 50px;
     color: rgb(0, 0, 0);
+    &:before {
+      content: '';
+      display: block;
+      height: 225px;
+      width: 120%;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      -webkit-transform: rotate(-5deg)translateX(-50%);
+      -ms-transform: rotate(-5deg)translateX(-50%);
+      transform: rotate(-5deg)translateX(-50%);
+      -webkit-transform-origin: center top;
+      -ms-transform-origin: center top;
+      transform-origin: center top;
+      z-index: 150;
+    }
     .section__headline {
       font-size: 3rem;
       font-weight: bold;
@@ -131,6 +147,17 @@ export default class Content extends Vue {
     }
   }
   .section-profile {
+    overflow: hidden;
+    background: #FFF;
+    min-height: 0;
+    -webkit-transition: .8s cubic-bezier(.77,0,.175,1);
+    transition: .8s cubic-bezier(.77,0,.175,1);
+    &:before {
+      background: #F3F3F3;
+      -webkit-transform: rotate(-5deg)translateX(-50%)translateY(-100%);
+      -ms-transform: rotate(-5deg)translateX(-50%)translateY(-100%);
+      transform: rotate(-5deg)translateX(-50%)translateY(-100%);
+    }
     .section__content {
       .section__content__skills {
         margin: 0 auto;
