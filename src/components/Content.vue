@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="site-main">
     <section class="section section-profile">
       <div class="section__headline">
         <span>ПРОФИЛЬ</span>
@@ -60,7 +60,7 @@
     </section>
     <section class="section section-statement">
       <div class="section__headline">
-        <span>Стейтмент</span>
+        <span>СТЕЙТМЕНТ</span>
       </div>
       <div class="section__content">
        <chart :chart-data="statementData" :style="{ height: '400px', position: 'relative' }"/>
@@ -103,26 +103,42 @@ export default class Content extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+  body, html {
+    height: 100%;
+    width: 100%;
+  }
+  .site-main {
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100%;
+    transition: .7s cubic-bezier(.77,0,.175,1);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
   .section {
     padding: 70px 50px 0 50px;
     color: rgb(0, 0, 0);
+    position: relative;
+    overflow: hidden;
     &:before {
       content: '';
       display: block;
-      height: 225px;
-      width: 120%;
+      height: 255px;
       position: absolute;
       left: 50%;
       top: 0;
+      width: 120%;
       -webkit-transform: rotate(-5deg)translateX(-50%);
       -ms-transform: rotate(-5deg)translateX(-50%);
       transform: rotate(-5deg)translateX(-50%);
       -webkit-transform-origin: center top;
       -ms-transform-origin: center top;
       transform-origin: center top;
-      z-index: 150;
     }
     .section__headline {
+      transform: rotate(0);
       font-size: 3rem;
       font-weight: bold;
       letter-spacing: 0.4em;
@@ -154,9 +170,9 @@ export default class Content extends Vue {
     transition: .8s cubic-bezier(.77,0,.175,1);
     &:before {
       background: #F3F3F3;
-      -webkit-transform: rotate(-5deg)translateX(-50%)translateY(-100%);
-      -ms-transform: rotate(-5deg)translateX(-50%)translateY(-100%);
-      transform: rotate(-5deg)translateX(-50%)translateY(-100%);
+      -webkit-transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+      -ms-transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+      transform: rotate(-5deg)translateX(-50%)translateY(-90%);
     }
     .section__content {
       .section__content__skills {
@@ -256,17 +272,36 @@ export default class Content extends Vue {
     }
   }
   .section-statement {
-    max-width: 90%;
     margin: 0 auto;
-    .section-statement__content {
-      display: flex;
-      img {
-        width: 30%;
-      }
+    background: #F3F3F3;
+    overflow: hidden;
+    background: #F3F3F3;
+    min-height: 0;
+    -webkit-transition: .8s cubic-bezier(.77,0,.175,1);
+    transition: .8s cubic-bezier(.77,0,.175,1);
+    &:before {
+      background: #FFF;
+      -webkit-transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+      -ms-transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+      transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+    }
+    .section__content {
+      width: 97%;
     }
   }
   .section-contact {
     margin-bottom: 30px;
+    overflow: hidden;
+    background: #FFF;
+    min-height: 0;
+    -webkit-transition: .8s cubic-bezier(.77,0,.175,1);
+    transition: .8s cubic-bezier(.77,0,.175,1);
+    &:before {
+      background: #F3F3F3;
+      -webkit-transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+      -ms-transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+      transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+    }
     a:hover, a:visited:hover {
       text-decoration: none;
     }
