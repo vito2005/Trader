@@ -139,7 +139,7 @@ export default class Content extends Vue {
     }
     .section__headline {
       transform: rotate(0);
-      font-size: 3rem;
+      font-size: 2.7rem;
       font-weight: bold;
       letter-spacing: 0.4em;
       &:after {
