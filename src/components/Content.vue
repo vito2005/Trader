@@ -256,7 +256,7 @@ export default class Content extends Vue {
     }
   }
   .section-statement {
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     .section-statement__content {
       display: flex;
