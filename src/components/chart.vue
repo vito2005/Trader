@@ -11,48 +11,37 @@ import { Line } from './lib/BaseCharts'
 export default {
   extends: Line,
   props: {
-    chartData: Object
+    chartData: Object,
+    country: String
   },
   watch: {
     chartData: {
       handler: async function (val) {
         if (val && Object.keys(val).length) {
-          this.renderChart({
-            labels: this.chartData.U2815583['1Y'].dates.map(d => parse(d)),
-            datasets: [
-              {
-                label: 'Доходность США (%)',
-                backgroundColor: '#8cf8a4',
-                fill: false,
-                data: this.chartData.U2815583['1Y'].cps.map(d => (d * 100).toFixed(2))
-              }
-            ]
-          }, { responsive: true, maintainAspectRatio: false })
+          this.render()
         }
       },
       deep: true
     }
   },
   mounted () {
-    window.chart = this
-    function parse (str) {
-      const y = str.substr(0, 4)
-      const m = str.substr(4, 2)
-      const d = str.substr(6, 2)
-      return d + '.' + m + '.' + y
+    this.render()
+  },
+  methods: {
+    render () {
+      this.renderChart({
+        labels: this.chartData.labels,
+        datasets: [
+          {
+            label: 'Доходность ' + this.country + ' (%)',
+            backgroundColor: '#8cf8a4',
+            borderColor: '#5719f8',
+            fill: false,
+            data: this.chartData.data
+          }
+        ]
+      }, { responsive: true, maintainAspectRatio: false })
     }
-    this.renderChart({
-      labels: this.chartData.U2815583['1Y'].dates.map(d => parse(d)),
-      datasets: [
-        {
-          label: 'Доходность США (%)',
-          backgroundColor: '#8cf8a4',
-          borderColor: '#5719f8',
-          fill: false,
-          data: this.chartData.U2815583['1Y'].cps.map(d => (d * 100).toFixed(2))
-        }
-      ]
-    }, { responsive: true, maintainAspectRatio: false })
   }
 }
 </script>

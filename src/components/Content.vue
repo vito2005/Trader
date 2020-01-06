@@ -62,8 +62,11 @@
       <div class="section__headline">
         <span>СТЕЙТМЕНТ</span>
       </div>
+      <div class="switcher">
+        <span @click="toggleChart('США')" :class="activeChart === 'США' && 'active'">США</span> | <span @click="toggleChart('Россия')" :class="activeChart === 'Россия' && 'active'">Россия</span>
+      </div>
       <div class="section__content">
-       <chart :chart-data="statementData" :style="{ height: '400px', position: 'relative' }"/>
+       <chart :country="activeChart" :chart-data="statementData" :style="{ height: '400px', position: 'relative' }"/>
       </div>
 
     </section>
@@ -86,6 +89,34 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import chart from './chart.vue'
 import statement from './../assets/state.json'
+import statementRussia from './../assets/stateRussia.json'
+function parse (str) {
+  const y = str.substr(0, 4)
+  const m = str.substr(4, 2)
+  const d = str.substr(6, 2)
+  return d + '.' + m + '.' + y
+}
+function parseDate (date: any) {
+  let dd = date.getDate()
+  let mm = date.getMonth() + 1 // January is 0!
+
+  const yyyy = date.getFullYear()
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+  return dd + '.' + mm + '.' + yyyy
+}
+const mappedStatement = {
+  labels: statement.U2815583['1Y'].dates.map(d => parse(d)),
+  data: statement.U2815583['1Y'].cps.map(d => (d * 100).toFixed(2))
+}
+const mappedStatementRussia = {
+  labels: statementRussia.FinancialResultsHistory.map(item => parseDate(new Date(item.StartDate))),
+  data: statementRussia.FinancialResultsHistory.map(item => item.FinancialResultPcnt)
+}
 @Component({
   components: {
     chart
@@ -93,11 +124,18 @@ import statement from './../assets/state.json'
 })
 export default class Content extends Vue {
   @Prop() private msg!: string;
-  data () {
-    return {
-      statementData: statement
+    activeChart: any;
+    statementData: any;
+    toggleChart (chartType: string) {
+      this.activeChart = chartType
+      this.statementData = chartType === 'США' ? mappedStatement : mappedStatementRussia
     }
-  }
+    data () {
+      return {
+        statementData: mappedStatement,
+        activeChart: 'США'
+      }
+    }
 }
 </script>
 
@@ -180,7 +218,8 @@ export default class Content extends Vue {
             font-weight: 400;
             font-style: normal;
             text-align: right;
-            font-size: 1.5em;
+            font-size: 1.4em;
+            line-height: 1.5;
           }
         }
         .columns {
@@ -225,6 +264,15 @@ export default class Content extends Vue {
       -webkit-transform: rotate(-5deg)translateX(-50%)translateY(-90%);
       -ms-transform: rotate(-5deg)translateX(-50%)translateY(-90%);
       transform: rotate(-5deg)translateX(-50%)translateY(-90%);
+    }
+    .switcher {
+      margin: 0 0 15px 0;
+      span {
+        cursor: pointer;
+      }
+      span.active {
+        color: var(--text-green);
+      }
     }
     .section__content {
       width: 97%;

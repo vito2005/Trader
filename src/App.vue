@@ -9,6 +9,7 @@
     height: 100%;
     width: 100%;
     --text-grey: #9B9BA3;
+    --text-green: #87c6bd;
     --bg-white: #FFF;
     --mobile: 450px;
   }
