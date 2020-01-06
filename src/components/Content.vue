@@ -106,6 +106,7 @@ export default class Content extends Vue {
   body, html {
     height: 100%;
     width: 100%;
+    --text-grey: #9B9BA3;
   }
   .site-main {
     overflow: auto;

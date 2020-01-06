@@ -2,6 +2,7 @@
   <div class="home">
     <Menu :items="$store.state.menu"></Menu>
     <MainContent/>
+    <Footer/>
   </div>
 </template>
 
@@ -9,14 +10,16 @@
 // @ is an alias to /src
 import MainContent from '@/components/Content.vue'
 import Menu from '@/components/Menu'
+import Footer from '@/components/Footer'
 export default {
   name: 'home',
   components: {
     Menu,
-    MainContent
+    MainContent,
+    Footer
   },
   mounted () {
-    const anchors = document.querySelectorAll('a[href*="#"]')
+    const anchors = document.querySelectorAll('ul li a[href*="#"]')
     for (let anchor of anchors) {
       anchor.addEventListener('click', function (e) {
         e.preventDefault()
@@ -28,6 +31,22 @@ export default {
         })
       })
     }
+    window.addEventListener('scroll', event => {
+      let fromTop = window.scrollY
+
+      anchors.forEach(link => {
+        let section = document.querySelector(link.hash)
+        if (
+          section.offsetTop <= fromTop &&
+          section.offsetTop + section.offsetHeight > fromTop
+        ) {
+          console.log('section', section.id, fromTop, section.offsetHeight, section.offsetTop)
+          link.classList.add('current')
+        } else {
+          link.classList.remove('current')
+        }
+      })
+    })
   }
 }
 </script>

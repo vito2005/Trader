@@ -1,7 +1,7 @@
 <template>
   <nav class="main-nav" ref="menu">
     <ul>
-      <li :key="i" v-for="(item, i) in items"><a :href="`#${item.href}`">{{ item.title }}</a></li>
+      <li :key="i" v-for="(item, i) in items"><a :class="i === 0 && 'current'" :href="item.href">{{ item.title }}</a></li>
     </ul>
     <a href="#" class="main-nav-trigger">
       <i class="icon icon--burger"></i>
@@ -80,10 +80,6 @@ export default class HelloWorld extends Vue {
         padding: 10px;
         -webkit-transition: .6s cubic-bezier(.77,0,.175,1);
         transition: .6s cubic-bezier(.77,0,.175,1);
-        text-transform: uppercase;
-        font-family: "Oak Bold",sans-serif;
-        font-weight: 700;
-        font-style: normal;
         transform: translateY(-100%);
         a {
           font-family: "Oak Bold",sans-serif;
@@ -98,6 +94,9 @@ export default class HelloWorld extends Vue {
           -webkit-transition: .1s;
           transition: .1s;
           &:hover {
+            color: #87c6bd;
+          }
+          &.current {
             color: #87c6bd;
           }
         }
