@@ -47,6 +47,7 @@ export default {
         {
           label: 'Доходность США (%)',
           backgroundColor: '#8cf8a4',
+          borderColor: '#5719f8',
           fill: false,
           data: this.chartData.U2815583['1Y'].cps.map(d => (d * 100).toFixed(2))
         }
