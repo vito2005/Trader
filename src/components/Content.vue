@@ -292,7 +292,7 @@ export default class Content extends Vue {
     }
   }
   .section-contact {
-    margin-bottom: 30px;
+    margin-bottom: 220px;
     overflow: hidden;
     background: #FFF;
     min-height: 0;

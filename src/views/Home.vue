@@ -40,7 +40,6 @@ export default {
           section.offsetTop <= fromTop &&
           section.offsetTop + section.offsetHeight > fromTop
         ) {
-          console.log('section', section.id, fromTop, section.offsetHeight, section.offsetTop)
           link.classList.add('current')
         } else {
           link.classList.remove('current')
