@@ -90,7 +90,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import chart from './chart.vue'
 import statement from './../assets/state.json'
 import statementRussia from './../assets/stateRussia.json'
-function parse (str) {
+function parse (str: string) {
   const y = str.substr(0, 4)
   const m = str.substr(4, 2)
   const d = str.substr(6, 2)
@@ -269,6 +269,7 @@ export default class Content extends Vue {
       margin: 0 0 15px 0;
       span {
         cursor: pointer;
+        font-size: 1.2em;
       }
       span.active {
         color: var(--text-green);
