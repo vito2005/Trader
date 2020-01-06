@@ -35,7 +35,7 @@ export default {
           {
             label: 'Доходность ' + this.country + ' (%)',
             backgroundColor: '#8cf8a4',
-            borderColor: '#5719f8',
+            borderColor: '#000080',
             fill: false,
             data: this.chartData.data
           }

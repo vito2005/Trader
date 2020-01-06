@@ -113,7 +113,7 @@ export default {
         }
         .analytics__image {
           img {
-            width: 100%;
+            width: 70%;
           }
         }
       }
