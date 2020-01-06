@@ -21,16 +21,23 @@ export default class HelloWorld extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style  lang="scss">
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: "Oak Light",sans-serif;
-    font-weight: lighter;
-    font-style: normal;
-    font-size: 1em;
+  @media (max-width: 600px) {
+    .main-nav {
+      height: 180px;
+      &:hover {
+        height: 180px !important;
+      }
+      ul {
+        flex-direction: column;
+        li {
+          a {
+            font-size: 1.6em !important;
+          }
+        }
+      }
+    }
   }
+
   nav.main-nav {
       height: auto;
       position: fixed;
@@ -75,7 +82,6 @@ export default class HelloWorld extends Vue {
       padding: 20px;
       margin: 0;
       li  {
-        display: inline-block;
         margin: 0;
         padding: 10px;
         -webkit-transition: .6s cubic-bezier(.77,0,.175,1);

@@ -42,7 +42,7 @@
           </div>
           <div class="columns">
             <p>В своей деятельности я опираюсь в основном на технический анализ. Основным принципом в
-              моем подходе к анализу рынков стал отбор сильного сектора, индустрии и акции.
+              моем подходе к торговле стал отбор сильного сектора, индустрии и акции.
             </p>
             <p>  Акции, которые уже показали, что способны развить движение, быть лучше остальных, сильнее на
               ралли и устойчивее при снижениях индекса широкого рынка в целом.
@@ -103,67 +103,6 @@ export default class Content extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  body, html {
-    height: 100%;
-    width: 100%;
-    --text-grey: #9B9BA3;
-  }
-  .site-main {
-    overflow: auto;
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100%;
-    transition: .7s cubic-bezier(.77,0,.175,1);
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-  }
-  .section {
-    padding: 70px 50px 0 50px;
-    color: rgb(0, 0, 0);
-    position: relative;
-    overflow: hidden;
-    &:before {
-      content: '';
-      display: block;
-      height: 255px;
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 120%;
-      -webkit-transform: rotate(-5deg)translateX(-50%);
-      -ms-transform: rotate(-5deg)translateX(-50%);
-      transform: rotate(-5deg)translateX(-50%);
-      -webkit-transform-origin: center top;
-      -ms-transform-origin: center top;
-      transform-origin: center top;
-    }
-    .section__headline {
-      transform: rotate(0);
-      font-size: 2.7rem;
-      font-weight: bold;
-      letter-spacing: 0.4em;
-      margin-top: 0.5rem;
-      &:after {
-        margin: 70px auto;;
-        width: 100px;
-        content: '';
-        display: block;
-        background: #1D1D1F;
-        height: 4px;
-        -webkit-transition: .4s cubic-bezier(.175,.885,.32,1.275).8s;
-        transition: .4s cubic-bezier(.175,.885,.32,1.275).8s;
-      }
-    }
-    .section__content {
-      h2 {
-        letter-spacing: .025em;
-        a {
-          color: rgb(0, 0, 0);
-        }
-      }
-    }
-  }
   .section-profile {
     overflow: hidden;
     background: #FFF;
@@ -230,7 +169,7 @@ export default class Content extends Vue {
           height: 0;
         }
         .column__main {
-          width: 33.33333%;
+          width: 33.3333%;
           display: block;
           float: left;
           box-sizing: border-box;
@@ -292,7 +231,7 @@ export default class Content extends Vue {
     }
   }
   .section-contact {
-    margin-bottom: 220px;
+    margin-bottom: 233px;
     overflow: hidden;
     background: #FFF;
     min-height: 0;
@@ -306,6 +245,31 @@ export default class Content extends Vue {
     }
     a:hover, a:visited:hover {
       text-decoration: none;
+    }
+  }
+  @media (max-width: 600px) {
+    .section-profile {
+      .section__content {
+        .section__content__aboutme {
+          .column__main {
+            width: 100%;
+            h3.font-face--plantin-light {
+              text-align: justify;
+              font-size: 2em;
+              line-height: 1.6em;
+            }
+          }
+          .columns {
+            width: 100%;
+            column-count: 1;
+            p {
+              width: 100%;
+              text-align: justify;
+              font-size: 2em;
+            }
+          }
+        }
+      }
     }
   }
 </style>
