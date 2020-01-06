@@ -88,14 +88,12 @@
     }
   }
 }
-  @media (max-width: 450px) {
-    body {
-      font-size: 8px;
-    }
-  }
   @media (max-width: 600px) {
     .section {
       padding: 70px 15px 0 10px;
+      .section__headline {
+        font-size: 2em;
+      }
     }
   }
 </style>

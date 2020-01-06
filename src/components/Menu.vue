@@ -23,9 +23,9 @@ export default class HelloWorld extends Vue {
 <style  lang="scss">
   @media (max-width: 600px) {
     .main-nav {
-      height: 180px;
+      height: 250px;
       &:hover {
-        height: 180px !important;
+        height: 250px !important;
       }
       ul {
         flex-direction: column;

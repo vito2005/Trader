@@ -106,6 +106,7 @@ export default {
           font-family: "Plantin Light",serif;
           font-weight: 400;
           font-style: normal;
+          line-height: 1.5em;
           span  {
             font-weight: 700;
           }
