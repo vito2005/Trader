@@ -115,7 +115,7 @@ const mappedStatement = {
 }
 const mappedStatementRussia = {
   labels: statementRussia.FinancialResultsHistory.map(item => parseDate(new Date(item.StartDate))),
-  data: statementRussia.FinancialResultsHistory.map(item => item.FinancialResultPcnt)
+  data: statementRussia.FinancialResultsHistory.map(item => (item.FinancialResult / statementRussia.FinancialResults[0].AverageAmount * 100).toFixed(2))
 }
 @Component({
   components: {
