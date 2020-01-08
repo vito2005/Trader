@@ -101,9 +101,15 @@ export default {
     }
     .section-analytics {
       .section__content {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: justify;
         p {
+          width: 80%;
           font-family: "Plantin Light",serif;
+          font-size: 1.5em;
           font-weight: 400;
           font-style: normal;
           line-height: 1.5em;
@@ -112,8 +118,9 @@ export default {
           }
         }
         .analytics__image {
+          width: 80%;
           img {
-            width: 70%;
+            width: 100%;
           }
         }
       }

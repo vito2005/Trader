@@ -12,6 +12,10 @@
     --text-green: #87c6bd;
     --bg-white: #FFF;
     --mobile: 450px;
+    @font-face {
+      font-family: "Plantin Light";
+      src: url('./assets/fonts/plantin-light.ttf');
+    }
   }
 #app {
   font-family: "Oak Bold", Helvetica, Arial, sans-serif;
@@ -44,6 +48,10 @@
   transform: translateX(0);
 }
 .section {
+  @font-face {
+    font-family: "Plantin Light";
+    src: url('./assets/fonts/plantin-light.ttf');
+  }
   padding: 70px 50px 0 50px;
   color: rgb(0, 0, 0);
   position: relative;
