@@ -4,6 +4,17 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'App'
+  // metaInfo: {
+  //   title: 'Сухарев Дмитрий- трейдинг, управление активами, инвестции, анализ акций',
+  //   meta: [
+  //     { name: 'yandex-verification', content: '2e72c3850c9b1f67' }
+  //   ]
+  // }
+}
+</script>
 <style lang="scss">
   body, html {
     height: 100%;

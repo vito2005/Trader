@@ -1,7 +1,7 @@
 <template>
   <nav class="main-nav" ref="menu">
     <ul>
-      <li :key="i" v-for="(item, i) in items"><a :class="i === 0 && 'current'" :href="item.href">{{ item.title }}</a></li>
+      <li @click="item.toggleMainPge && toggleMainPage(item.toggleMainPge)" :key="i" v-for="(item, i) in items"><a :class="i === 0 && 'current'" :href="item.href">{{ item.title }}</a></li>
     </ul>
     <a href="#" class="main-nav-trigger">
       <i class="icon icon--burger"></i>
@@ -16,6 +16,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class HelloWorld extends Vue {
         @Prop() private items!: string[]
+        toggleMainPage (toggleMainPge: any) {
+          toggleMainPge && this.$store.commit('toggleMainPage', toggleMainPge)
+          window.scrollTo(0, 0)
+        }
 }
 </script>
 
@@ -88,6 +92,7 @@ export default class HelloWorld extends Vue {
         transition: .6s cubic-bezier(.77,0,.175,1);
         transform: translateY(-100%);
         a {
+          cursor: pointer;
           font-family: "Oak Bold",sans-serif;
           font-weight: 700;
           font-style: normal;

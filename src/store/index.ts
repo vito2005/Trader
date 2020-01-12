@@ -10,11 +10,15 @@ export default new Vuex.Store({
       { title: 'Профиль', href: '#profile' },
       { title: 'Стейтмент', href: '#statement' },
       { title: 'Контакты', href: '#contact' },
-      { title: 'Аналитика', href: '/analytics' }
+      { title: 'Аналитика', toggleMainPge: true }
     ],
+    mainPage: true,
     email: 'Dmitry0112@mail.ru'
   },
   mutations: {
+    toggleMainPage (state, value) {
+      state.mainPage = !value
+    }
   },
   actions: {
   },
