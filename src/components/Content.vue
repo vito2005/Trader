@@ -302,8 +302,8 @@ export default class Content extends Vue {
             width: 100%;
             h3.font-face--plantin-light {
               text-align: justify;
-              font-size: 2em;
-              line-height: 1.6em;
+              font-size: 1.1em;
+              letter-spacing: .025em;
             }
           }
           .columns {
@@ -312,7 +312,8 @@ export default class Content extends Vue {
             p {
               width: 100%;
               text-align: justify;
-              font-size: 2em;
+              font-size: 1.1em;
+              letter-spacing: .025em;
             }
           }
         }

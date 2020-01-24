@@ -1,7 +1,7 @@
 <template>
   <div class="analytics">
     <div class="button_goBack">
-      <a href="/">← Назад</a>
+        <router-link to="/">← Назад</router-link>
     </div>
     <div class="site-main">
       <section class="section section-analytics">
@@ -107,12 +107,12 @@ export default {
         align-items: center;
         text-align: justify;
         p {
-          width: 80%;
+          width: 90%;
           font-family: "Plantin Light",serif;
-          font-size: 1.5em;
           font-weight: 400;
           font-style: normal;
-          line-height: 1.5em;
+          line-height: 1.85em;
+          letter-spacing: .05em;
           span  {
             font-weight: 700;
           }
@@ -130,12 +130,17 @@ export default {
     .analytics {
       .button_goBack {
         a {
-          font-size: 1.6em;
+          font-size: 1em;
         }
       }
-      p {
-        text-align: justify;
-        font-size: 2em;
+      .section-analytics {
+        .section__content {
+          p {
+            text-align: justify;
+            font-size: 1.1em;
+            letter-spacing: .025em;
+          }
+        }
       }
     }
   }

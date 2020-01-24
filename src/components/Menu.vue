@@ -1,7 +1,10 @@
 <template>
   <nav class="main-nav" ref="menu">
     <ul>
-      <li @click="item.toggleMainPge && toggleMainPage(item.toggleMainPge)" :key="i" v-for="(item, i) in items"><a :class="i === 0 && 'current'" :href="item.href">{{ item.title }}</a></li>
+      <li :key="i" v-for="(item, i) in items">
+        <router-link v-if="item.href === '/analytics'" :to="item.href">{{ item.title }}</router-link>
+        <a v-else :class="i === 0 && 'current'" :href="item.href">{{ item.title }}</a>
+      </li>
     </ul>
     <a href="#" class="main-nav-trigger">
       <i class="icon icon--burger"></i>
@@ -16,10 +19,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class HelloWorld extends Vue {
         @Prop() private items!: string[]
-        toggleMainPage (toggleMainPge: any) {
-          toggleMainPge && this.$store.commit('toggleMainPage', toggleMainPge)
-          window.scrollTo(0, 0)
-        }
 }
 </script>
 
