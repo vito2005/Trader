@@ -1,4 +1,4 @@
-# traider
+# Trader
 
 ## Project setup
 ```

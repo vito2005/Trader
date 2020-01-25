@@ -18,7 +18,7 @@ steps:
 - name: deploy
   image: cschlosser/drone-ftps
   environment:
-    repo: vito2005/traider
+    repo: vito2005/Trader
     FTP_USERNAME:
       from_secret: ftp_username
     FTP_PASSWORD:
@@ -31,6 +31,6 @@ steps:
 
 ---
 kind: signature
-hmac: 466ec2ec05acda08a793f19391754d02f57e5f0622a8e5015f652958ed157323
+hmac: ccbe6a371416e7b6cd58f0e78ac6da33dd29426eb37a19533e845dec519b30f1
 
 ...
