@@ -1,0 +1,42 @@
+---
+kind: pipeline
+name: default
+
+trigger:
+  branch:
+  - master
+  event:
+  - push
+
+steps:
+- name: build
+  image: mhart/alpine-node:12
+  pull: always
+  commands:
+  - npm i
+  - npm run build
+- name: deploy
+  image: cschlosser/drone-ftps
+  hostname: ftp.h001273707.nichost.ru
+  secrets: [ ftp_username, ftp_password ]
+  secure: true
+  dest_dir: /sukharev-trader.ru/docs
+  src_dir: /dist
+
+---
+  kind: secret
+  name: ftp_username
+  get:
+    path: drone/data/ftp_username
+    name: username
+---
+  kind: secret
+  name: ftp_password
+  get:
+    path: drone/data/ftp_password
+    name: password
+---
+kind: signature
+hmac: 4c410c8a244247f18225972f314aa1e8886a9befa6f7a4cd2bdf3b02c569df7d
+
+...
