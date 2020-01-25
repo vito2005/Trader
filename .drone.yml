@@ -23,11 +23,10 @@ steps:
       from_secret: ftp_username
     FTP_PASSWORD:
       from_secret: ftp_password
-  hostname: ftp.h001273707.nichost.ru
-  clean_dir: true
-  secure: true
-  dest_dir: /sukharev-trader.ru/docs
-  src_dir: /dist
+    PLUGIN_HOSTNAME: ftp.h001273707.nichost.ru
+    PLUGIN_CLEAN_DIR: true
+    PLUGIN_DEST_DIR: /sukharev-trader.ru/docs
+    PLUGIN_SRC_DIR: /dist
 
 ---
 kind: signature
