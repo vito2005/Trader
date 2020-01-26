@@ -1,17 +1,8 @@
-<Directory ~ "^/[\w+\d+-]+">
-  FallbackResource /index.html
-</Directory>
-
-<Files ~ "\.(js|css|gif|jpe?g|png)$">
-  FallbackResource disabled
-  ErrorDocument 404 "File not found"
-</Files>
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
+  RewriteBase /analytics
+  RewriteRule ^analytics/index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . /analytics/index.html [L]
 </IfModule>
