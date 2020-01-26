@@ -1,3 +1,12 @@
+<Directory ~ "^/[\w+\d+-]+">
+  FallbackResource /index.html
+</Directory>
+
+<Files ~ "\.(js|css|gif|jpe?g|png)$">
+  FallbackResource disabled
+  ErrorDocument 404 "File not found"
+</Files>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -6,14 +15,3 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
-
-# Map all SPA-looking routes to our single page app index file
-<Directory ~ "^/[\w+\d+-]+">
-  FallbackResource /index.html
-</Directory>
-
-# Requests for files should return a real 404 and not fallback to the index.html page, though
-<Files ~ "\.(js|css|gif|jpe?g|png)$">
-  FallbackResource disabled
-  ErrorDocument 404 "File not found"
-</Files>
