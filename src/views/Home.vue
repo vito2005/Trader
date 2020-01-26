@@ -8,7 +8,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import MainContent from '@/components/Content.vue'
 import Menu from '@/components/Menu'
 import Footer from '@/components/Footer'
@@ -40,11 +39,17 @@ export default {
         })
       })
     }
-    window.addEventListener('scroll', event => {
-      let fromTop = window.scrollY
-
+    window.addEventListener('scroll', this.scroll)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.scroll)
+  },
+  methods: {
+    scroll (event) {
+      const fromTop = window.scrollY
+      const anchors = document.querySelectorAll('ul li a[href*="#"]')
       anchors.forEach(link => {
-        let section = document.querySelector(link.hash)
+        const section = document.querySelector(link.hash)
         if (
           section.offsetTop <= fromTop &&
           section.offsetTop + section.offsetHeight > fromTop
@@ -54,7 +59,7 @@ export default {
           link.classList.remove('current')
         }
       })
-    })
+    }
   }
 }
 </script>

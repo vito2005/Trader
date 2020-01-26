@@ -1,12 +1,12 @@
 <template>
-  <nav class="main-nav" ref="menu">
+  <nav :class="{'main-nav': true, 'is-visible': isVisible}" ref="menu">
     <ul>
-      <li :key="i" v-for="(item, i) in items">
+      <li :key="i" v-for="(item, i) in items" @click="toggle">
         <router-link v-if="item.href === '/analytics'" :to="item.href">{{ item.title }}</router-link>
         <a v-else :class="i === 0 && 'current'" :href="item.href">{{ item.title }}</a>
       </li>
     </ul>
-    <a href="#" class="main-nav-trigger">
+    <a href="#" :class="{ 'main-nav-trigger': true, 'is-closeable': isCloseable}" @click="toggle">
       <i class="icon icon--burger"></i>
     </a>
   </nav>
@@ -19,157 +19,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class HelloWorld extends Vue {
         @Prop() private items!: string[]
+        isCloseable: boolean = false
+        isVisible: boolean = false
+        toggle () {
+          if (window.innerWidth < 600) {
+            this.isCloseable = !this.isCloseable
+            this.isVisible = !this.isVisible
+          }
+        }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style  lang="scss">
-  @media (max-width: 600px) {
-    .main-nav {
-      height: 250px;
-      &:hover {
-        height: 250px !important;
-      }
-      ul {
-        flex-direction: column;
-        li {
-          a {
-            font-size: 1.6em !important;
-          }
-        }
-      }
-    }
-  }
-
-  nav.main-nav {
-      height: auto;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 1000;
-      background: #FFF;
-      transition: .7s cubic-bezier(.77,0,.175,1);
-    &:hover {
-      height: 80px;
-      &:before {
-        margin-top: 0;
-      }
-      ul {
-        li {
-          transform: translateY(0);
-        }
-      }
-    }
-    &:before {
-      content: '';
-      display: block;
-      background: #FFF;
-      border-bottom: 1px solid #F3F3F3;
-      margin-top: -81px;
-      -webkit-transition: .4s cubic-bezier(.77,0,.175,1);
-      transition: .4s cubic-bezier(.77,0,.175,1);
-    }
-    ul  {
-      transform: none;
-      top: auto;
-      bottom: 0;
-      background-color: #FFF;
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      position: absolute;
-      left: 0;
-      right: 0;
-      padding: 20px;
-      margin: 0;
-      li  {
-        margin: 0;
-        padding: 10px;
-        -webkit-transition: .6s cubic-bezier(.77,0,.175,1);
-        transition: .6s cubic-bezier(.77,0,.175,1);
-        transform: translateY(-100%);
-        a {
-          cursor: pointer;
-          font-family: "Oak Bold",sans-serif;
-          font-weight: 700;
-          font-style: normal;
-          font-size: .875em;
-          letter-spacing: .15em;
-          color: rgb(0,0,0);
-          text-decoration: none;
-          text-transform: uppercase;
-          display: inline-block;
-          -webkit-transition: .1s;
-          transition: .1s;
-          &:hover {
-            color: #87c6bd;
-          }
-          &.current {
-            color: #87c6bd;
-          }
-        }
-      }
-    }
-  }
-  @media (min-width: 1px) {
-    .main-nav, .main-nav:before {
-      height: 100%;
-    }
-  }
-  @media (min-width: 768px){
-    .main-nav:before {
-      height: 80px;
-    }
-  }
-  a.main-nav-trigger {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    padding: 10px 0;
-    cursor: pointer;
-    background-color: transparent;
-    &:visited {
-      color: inherit;
-    }
-    i.icon--burger {
-      display: inline-block;
-      vertical-align: middle;
-      width: 30px;
-      height: 3px;
-      top: -2px;
-      position: relative;
-      margin-bottom: 20px;
-      -webkit-transition: .4s cubic-bezier(.77,0,.175,1);
-      transition: .4s cubic-bezier(.77,0,.175,1);
-      -webkit-transform: rotateZ(0);
-      transform: rotateZ(0);
-      background: #1D1D1F;
-      &:before, &:after {
-        content: '';
-        display: block;
-        width: 0;
-        height: 3px;
-        left: 0;
-        position: absolute;
-        background: #1D1D1F;
-        -webkit-transition: .4s cubic-bezier(.77,0,.175,1);
-        transition: .4s cubic-bezier(.77,0,.175,1);
-      }
-      &:before {
-        top: 8px;
-        width: 30px;
-        -webkit-transform: rotateZ(0);
-        transform: rotateZ(0);
-      }
-      &:after {
-        width: 30px;
-        top: 16px;
-        -webkit-transform: rotateZ(0);
-        transform: rotateZ(0);
-      }
-    }
-  }
-</style>
