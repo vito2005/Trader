@@ -214,6 +214,7 @@ export default class Content extends Vue {
           box-sizing: border-box;
           padding: 20px;
           .font-face--plantin-light {
+            font-family:  'Plantin Light', serif;
             margin: 0;
             font-weight: 400;
             font-style: normal;
