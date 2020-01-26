@@ -6,7 +6,7 @@
         <a v-else :class="i === 0 && 'current'" :href="item.href">{{ item.title }}</a>
       </li>
     </ul>
-    <a href="#" :class="{ 'main-nav-trigger': true, 'is-closeable': isCloseable}" @click="toggle">
+    <a :class="{ 'main-nav-trigger': true, 'is-closeable': isCloseable}" @click="toggle">
       <i class="icon icon--burger"></i>
     </a>
   </nav>

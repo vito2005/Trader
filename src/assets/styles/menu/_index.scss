@@ -8,10 +8,13 @@
   z-index: 1000;
   background: #FFF;
   transition: .7s cubic-bezier(.77,0,.175,1);
+  -webkit-transition: .7s cubic-bezier(.77,0,.175,1);
   &:hover {
     height: 80px;
     &:before {
       margin-top: 0;
+      -webkit-transition: .4s cubic-bezier(.77,0,.175,1);
+      transition: .4s cubic-bezier(.77,0,.175,1);
     }
     ul {
       li {
