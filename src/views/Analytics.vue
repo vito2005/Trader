@@ -108,7 +108,6 @@ export default {
         text-align: justify;
         p {
           width: 90%;
-          font-family: "Plantin Light",serif;
           font-weight: 400;
           font-style: normal;
           line-height: 1.85em;
