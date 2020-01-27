@@ -47,16 +47,14 @@ export default {
   methods: {
     scroll (event) {
       const fromTop = window.scrollY
-      const anchors = document.querySelectorAll('ul li a[href*="#"]')
-      anchors.forEach(link => {
-        const section = document.querySelector(link.hash)
-        if (
-          section.offsetTop <= fromTop &&
-          section.offsetTop + section.offsetHeight > fromTop
-        ) {
-          link.classList.add('current')
-        } else {
-          link.classList.remove('current')
+      const sections = document.querySelectorAll('section')
+      sections.forEach(section => {
+        const top = section.offsetTop - 100
+        const bottom = top + section.offsetHeight
+        const id = section.getAttribute('id')
+        if (fromTop > top && fromTop < bottom) {
+          document.querySelector('ul li a.current').classList.remove('current')
+          document.querySelector(`ul li a[href*="#${id}"]`).classList.add('current')
         }
       })
     }
