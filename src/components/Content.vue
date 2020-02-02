@@ -129,47 +129,6 @@ export default class Content extends Vue {
       transform: rotate(-5deg)translateX(-50%)translateY(-90%);
     }
     .section__content {
-      .section__content__skills {
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        max-width: 1200px;
-        .card {
-          width: 33.33333%;
-          margin: 0 1rem;
-          display: flex;
-          justify-content: center;
-          &:first-child {
-            justify-content: flex-end;
-            div {
-              width: fit-content;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-            }
-          }
-          &:last-child {
-            justify-content: flex-start;
-            div {
-              width: fit-content;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-            }
-          }
-
-          div {
-            width: fit-content;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            img {
-              width: 80px;
-            }
-          }
-        }
-      }
       .section__content__aboutme {
         max-width: 1200px;
         margin: 0 auto;
@@ -193,6 +152,7 @@ export default class Content extends Vue {
             font-style: normal;
             text-align: right;
             line-height: 1.5;
+            animation: animationtext 2s linear;
           }
         }
         .columns {

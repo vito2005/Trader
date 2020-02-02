@@ -66,11 +66,12 @@
       margin-top: 0.5rem;
       &:after {
         margin: 70px auto;;
-        width: 100px;
         content: '';
+        max-width: 100px;
         display: block;
         background: #1D1D1F;
         height: 4px;
+        animation: animateline .5s cubic-bezier(.165,.84,.44,1);;
       }
     }
     .section__content {
@@ -84,10 +85,18 @@
 }
 
 @media (max-width: 600px) {
-.section {
-    padding: 70px 15px 0 10px;
-    .section__headline {
-    font-size: 2em;
-    }
+  .section {
+      padding: 70px 15px 0 10px;
+      .section__headline {
+      font-size: 2em;
+      }
+  }
 }
+@keyframes animateline {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
 }
